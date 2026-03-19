@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop: Numerische Mathematik mit Python</title>
+  <style>
+    /* ── Reset & Basis ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: #fff;
+      color: #222;
+      line-height: 1.65;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem 3rem;
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 1.5rem;
+    }
+    .workshop-label {
+      font-size: 0.8rem;
+      color: #666;
+      font-style: italic;
+      text-align: right;
+      margin-bottom: 0.25rem;
+    }
+    header h1 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      font-style: italic;
+      color: #111;
+      margin-bottom: 0.25rem;
+    }
+    header .subtitle {
+      font-size: 1rem;
+      font-style: italic;
+      color: #444;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Dreischritt-Box ── */
+    .dreischritt {
+      display: inline-block;
+      border: 2px solid #222;
+      border-radius: 6px;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+    .dreischritt strong { color: #2B579A; }
+    .dreischritt .arrow { color: #666; margin: 0 0.25rem; }
+
+    /* ── Phase-Titel ── */
+    .phase-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #2B579A;
+      margin: 1.5rem 0 1rem;
+    }
+
+    /* ── Abschnitt-Überschriften (1. Physik, 2. Mathematik, 3. Python) ── */
+    .section-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #2B579A;
+      margin: 1.75rem 0 0.75rem;
+      padding-bottom: 0.2rem;
+      border-bottom: 2px solid #2B579A;
+      display: inline-block;
+    }
+
+    /* ── Abbildungen ── */
+    .figure {
+      text-align: center;
+      margin: 1.25rem 0;
+    }
+    .figure img, .figure svg {
+      max-width: 100%;
+      height: auto;
+    }
+    .figure figcaption {
+      font-size: 0.82rem;
+      color: #666;
+      margin-top: 0.35rem;
+    }
+
+    /* ── Intro-Frage ── */
+    .intro-question {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0.75rem 0;
+    }
+
+    /* ── Mathematik-Bereich: Zwei-Spalten-Layout ── */
+    .math-row {
+      display: flex;
+      gap: 1.5rem;
+      margin: 1rem 0;
+      align-items: flex-start;
+    }
+    .math-questions {
+      flex: 1;
+      min-width: 0;
+    }
+    .math-questions ul {
+      padding-left: 1.25rem;
+      margin: 0;
+    }
+    .math-questions li {
+      margin-bottom: 0.6rem;
+    }
+    .math-questions li em {
+      font-style: normal;
+      font-weight: 600;
+    }
+    .math-table-wrap {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* ── Wertetabelle (HTML) ── */
+    table.wertetabelle {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+    table.wertetabelle th {
+      background: #2B579A;
+      color: #fff;
+      font-weight: 700;
+      padding: 0.5rem 0.75rem;
+      text-align: center;
+    }
+    table.wertetabelle td {
+      border: 1px solid #ddd;
+      padding: 0.45rem 0.75rem;
+      text-align: center;
+      height: 2.2rem;
+    }
+    table.wertetabelle tr:nth-child(even) td {
+      background: #f5f7fa;
+    }
+    table.wertetabelle .given {
+      color: #222;
+    }
+    table.wertetabelle .empty {
+      color: #bbb;
+      font-style: italic;
+    }
+    table.wertetabelle .result td {
+      background: #e8f0e8;
+      font-weight: 700;
+      color: #2B7A2B;
+    }
+    table.wertetabelle .result .empty {
+      color: #2B7A2B;
+    }
+
+    /* ── Formel-Box ── */
+    .formula-box {
+      background: #f8fafc;
+      border-left: 4px solid #2B579A;
+      padding: 0.75rem 1rem;
+      font-family: "Cambria Math", "Times New Roman", serif;
+      font-size: 1.05rem;
+      margin: 0.75rem 0;
+      line-height: 1.9;
+    }
+
+    /* ── Formellücke (zum Ausfüllen) ── */
+    .fill-in {
+      display: inline-block;
+      border-bottom: 1.5px solid #222;
+      min-width: 180px;
+      height: 1.3em;
+      margin-left: 0.25rem;
+    }
+
+    /* ── Python-Bereich ── */
+    .code-intro {
+      margin-bottom: 0.75rem;
+    }
+    .trinket-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .trinket-link a {
+      color: #2B579A;
+      font-weight: 600;
+    }
+
+    /* ── Update-Regeln Box ── */
+    .update-box {
+      border: 2px solid #222;
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      background: #fff;
+    }
+    .update-box .label {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .update-rule {
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+    .update-rule .blank {
+      display: inline-block;
+      border-bottom: 1.5px solid #222;
+      min-width: 200px;
+      height: 1.2em;
+    }
+
+    /* ── Code-Block ── */
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 1.1rem 1.25rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin: 1rem 0;
+    }
+    pre code {
+      font-family: "Consolas", "Courier New", monospace;
+    }
+    .todo { color: #facc15; font-weight: 700; }
+    .comment { color: #64748b; }
+    .string { color: #7dd3fc; }
+    .keyword { color: #c084fc; }
+    .number { color: #fbbf24; }
+
+    /* ── Fragen-Liste ── */
+    .fragen {
+      margin: 0.75rem 0;
+      padding-left: 1.5rem;
+    }
+    .fragen li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── Hinweis-Box ── */
+    .hinweis {
+      background: #fff8e1;
+      border: 1px solid #ffb300;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      color: #6d4c00;
+    }
+    .hinweis strong { color: #b45309; }
+
+    /* ── Responsive ── */
+    @media (max-width: 650px) {
+      body { padding: 1rem; }
+      header h1 { font-size: 1.4rem; }
+      .math-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ Header ══════════ -->
+<div class="workshop-label">Workshop: Numerische Mathematik mit Python</div>
+<header>
+  <h1>Wenn Formeln nicht mehr reichen</h1>
+  <div class="subtitle">Ein Einstieg in die numerische Mathematik mit Python</div>
+  <div class="dreischritt">
+    <strong>Der Dreischritt:</strong>
+    <span class="arrow">&nbsp;</span>1. Physik
+    <span class="arrow">&rarr;</span>2. Mathematik
+    <span class="arrow">&rarr;</span>3. Python
+  </div>
+</header>
+
+<!-- ══════════ Phase 2 ══════════ -->
+<h2 class="phase-title">Phase 2: Jetzt wird beschleunigt</h2>
+
+<!-- ── 1. Physik ── -->
+<h3 class="section-heading">1. Physik</h3>
+
+<div class="figure">
+  <img src="phase2_beschleunigung.svg" alt="Ein Wagen wird auf einer Schiene gleichmäßig beschleunigt">
+</div>
+
+<p class="intro-question">Der Wagen wird jetzt mit einer konstanten Beschleunigung a = 0,4 m/s&sup2; aus der Ruhe beschleunigt. An welchem Ort x befindet sich der Wagen nach t = 2 s?</p>
+
+<!-- ── 2. Mathematik ── -->
+<h3 class="section-heading">2. Mathematik</h3>
+
+<div class="math-row">
+  <!-- Linke Spalte: Fragen -->
+  <div class="math-questions">
+    <ul>
+      <li>Was ist jetzt anders als in Phase 1?</li>
+      <li>Wie ist die Durchschnittsbeschleunigung definiert?<br>
+        a = <span class="fill-in"></span></li>
+      <li>Wie berechnet ihr die neue Geschwindigkeit v<sub>2</sub> aus der alten Geschwindigkeit v<sub>1</sub>?<br>
+        v<sub>2</sub> = <span class="fill-in"></span></li>
+      <li>Wie berechnet ihr die neue Position x<sub>2</sub> aus der alten Position x<sub>1</sub>?<br>
+        x<sub>2</sub> = <span class="fill-in"></span></li>
+      <li>Zerlegt die Bewegung in Zeitschritte von &Delta;t = 0,5 s und füllt die Tabelle aus.</li>
+    </ul>
+  </div>
+  <!-- Rechte Spalte: Wertetabelle -->
+  <div class="math-table-wrap">
+    <table class="wertetabelle">
+      <thead>
+        <tr><th>t (s)</th><th>v (m/s)</th><th>x (m)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="given">0</td><td class="given">0</td><td class="given">0</td></tr>
+        <tr><td class="empty"></td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="empty"></td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="empty"></td><td class="empty"></td><td class="empty"></td></tr>
+        <tr class="result"><td>2,0</td><td class="empty">?</td><td class="empty">?</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="hinweis">
+  <strong>Hinweis:</strong> Vergleicht euer Ergebnis mit der exakten Formel x = &frac12; &middot; a &middot; t&sup2;. Stimmt es genau überein? Warum (nicht)?
+</div>
+
+<!-- ── 3. Python ── -->
+<h3 class="section-heading">3. Python</h3>
+
+<p class="code-intro">Erweitert euer Programm aus Phase 1: Jetzt muss in jedem Schritt auch die Geschwindigkeit aktualisiert werden.</p>
+
+<div class="update-box">
+  <div class="label">Update-Regeln:</div>
+  <div class="update-rule">v = <span class="blank"></span></div>
+  <div class="update-rule">x = <span class="blank"></span></div>
+  <div class="update-rule">t = <span class="blank"></span></div>
+</div>
+
+<iframe src="https://trinket.io/embed/glowscript/69862342350c" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen style="border-radius: 8px; margin: 1rem 0;"></iframe>
+
+<p style="margin-top: 1rem;"><strong>Fragen:</strong></p>
+<ul class="fragen">
+  <li>Was passiert mit eurem Ergebnis, wenn ihr dt kleiner macht (z.&thinsp;B. 0,1 s oder 0,01 s)?</li>
+  <li>Welchem Wert nähert sich x(2) an? Vergleicht mit der exakten Lösung.</li>
+  <li>Wo befindet sich der Wagen nach 3 s, wenn er mit a = 0,6 m/s&sup2; beschleunigt und bei v = 0,5 m/s startet?</li>
+</ul>
+
+</body>
+</html>
