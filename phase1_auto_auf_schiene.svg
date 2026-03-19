@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 220" width="700" height="220">
+  <defs>
+    <marker id="arrowR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+    <marker id="arrowR2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2B579A"/>
+    </marker>
+  </defs>
+
+  <!-- Schiene / Boden -->
+  <rect x="50" y="150" width="600" height="18" rx="3" fill="#C0C0C0" stroke="#999" stroke-width="1"/>
+  <!-- Schienen-Striche -->
+  <line x1="60" y1="155" x2="60" y2="165" stroke="#999" stroke-width="1"/>
+  <line x1="100" y1="155" x2="100" y2="165" stroke="#999" stroke-width="1"/>
+  <line x1="140" y1="155" x2="140" y2="165" stroke="#999" stroke-width="1"/>
+  <line x1="180" y1="155" x2="180" y2="165" stroke="#999" stroke-width="1"/>
+  <line x1="220" y1="155" x2="220" y2="165" stroke="#999" stroke-width="1"/>
+  <line x1="260" y1="155" x2="260" y2="165" stroke="#999" stroke-width="1"/>
+  <line x1="300" y1="155" x2="300" y2="165" stroke="#999" stroke-width="1"/>
+  <line x1="340" y1="155" x2="340" y2="165" stroke="#999" stroke-width="1"/>
+  <line x1="380" y1="155" x2="380" y2="165" stroke="#999" stroke-width="1"/>
+  <line x1="420" y1="155" x2="420" y2="165" stroke="#999" stroke-width="1"/>
+  <line x1="460" y1="155" x2="460" y2="165" stroke="#999" stroke-width="1"/>
+  <line x1="500" y1="155" x2="500" y2="165" stroke="#999" stroke-width="1"/>
+  <line x1="540" y1="155" x2="540" y2="165" stroke="#999" stroke-width="1"/>
+  <line x1="580" y1="155" x2="580" y2="165" stroke="#999" stroke-width="1"/>
+  <line x1="620" y1="155" x2="620" y2="165" stroke="#999" stroke-width="1"/>
+
+  <!-- Auto (rotes Rechteck mit Rädern) -->
+  <rect x="100" y="110" width="90" height="40" rx="4" fill="#CC3333" stroke="#992222" stroke-width="1.5"/>
+  <!-- Räder -->
+  <circle cx="120" cy="150" r="8" fill="#444" stroke="#333" stroke-width="1.5"/>
+  <circle cx="170" cy="150" r="8" fill="#444" stroke="#333" stroke-width="1.5"/>
+  <!-- Radnaben -->
+  <circle cx="120" cy="150" r="3" fill="#999"/>
+  <circle cx="170" cy="150" r="3" fill="#999"/>
+
+  <!-- Geschwindigkeitspfeil über dem Auto -->
+  <line x1="120" y1="90" x2="200" y2="90" stroke="#333" stroke-width="2.5" marker-end="url(#arrowR)"/>
+  <text x="210" y="95" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">v = 0,45 m/s</text>
+
+  <!-- x-Achse Beschriftung -->
+  <text x="90" y="195" font-family="Arial, sans-serif" font-size="14" fill="#2B579A" font-weight="bold">x = 0</text>
+
+  <!-- Positionsmarkierung bei x=0 -->
+  <line x1="100" y1="170" x2="100" y2="185" stroke="#2B579A" stroke-width="2"/>
+
+  <!-- Fragezeichen bei x = ? -->
+  <line x1="500" y1="170" x2="500" y2="185" stroke="#2B579A" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="480" y="205" font-family="Arial, sans-serif" font-size="14" fill="#2B579A" font-weight="bold">x = ?</text>
+
+  <!-- Zeitangaben -->
+  <text x="80" y="210" font-family="Arial, sans-serif" font-size="12" fill="#666">t = 0 s</text>
+  <text x="465" y="218" font-family="Arial, sans-serif" font-size="12" fill="#666">t = 1,5 s</text>
+
+  <!-- Abstandspfeil -->
+  <line x1="100" y1="180" x2="500" y2="180" stroke="#2B579A" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowR2)"/>
+
+  <!-- Titel -->
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333" text-anchor="middle">Gleichförmige Bewegung</text>
+  <text x="350" y="52" font-family="Arial, sans-serif" font-size="13" fill="#666" text-anchor="middle">Konstante Geschwindigkeit, keine Beschleunigung</text>
+</svg>

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" width="520" height="320">
+  <style>
+    text { font-family: Arial, sans-serif; }
+    .header { font-size: 14px; font-weight: bold; fill: white; }
+    .cell { font-size: 13px; fill: #333; }
+    .hint { font-size: 12px; fill: #999; font-style: italic; }
+    .label { font-size: 11px; fill: #2B579A; font-weight: bold; }
+  </style>
+
+  <!-- Titel -->
+  <text x="260" y="25" font-size="16" font-weight="bold" fill="#333" text-anchor="middle">Wertetabelle: Gleichförmige Bewegung</text>
+  <text x="260" y="42" font-size="12" fill="#666" text-anchor="middle">v = 0,45 m/s, dt = 0,25 s, x₀ = 0 m</text>
+
+  <!-- Tabelle -->
+  <!-- Header -->
+  <rect x="30" y="55" width="150" height="30" fill="#2B579A"/>
+  <rect x="180" y="55" width="150" height="30" fill="#2B579A"/>
+  <rect x="330" y="55" width="150" height="30" fill="#2B579A"/>
+  <text x="105" y="75" class="header" text-anchor="middle">t (s)</text>
+  <text x="255" y="75" class="header" text-anchor="middle">dt (s)</text>
+  <text x="405" y="75" class="header" text-anchor="middle">x (m)</text>
+
+  <!-- Zeile 1 - vorgegeben -->
+  <rect x="30" y="85" width="150" height="28" fill="#F0F4F8" stroke="#DDD" stroke-width="0.5"/>
+  <rect x="180" y="85" width="150" height="28" fill="#F0F4F8" stroke="#DDD" stroke-width="0.5"/>
+  <rect x="330" y="85" width="150" height="28" fill="#F0F4F8" stroke="#DDD" stroke-width="0.5"/>
+  <text x="105" y="104" class="cell" text-anchor="middle">0</text>
+  <text x="255" y="104" class="cell" text-anchor="middle">0,25</text>
+  <text x="405" y="104" class="cell" text-anchor="middle">0</text>
+
+  <!-- Zeile 2 - vorgegeben -->
+  <rect x="30" y="113" width="150" height="28" fill="white" stroke="#DDD" stroke-width="0.5"/>
+  <rect x="180" y="113" width="150" height="28" fill="white" stroke="#DDD" stroke-width="0.5"/>
+  <rect x="330" y="113" width="150" height="28" fill="white" stroke="#DDD" stroke-width="0.5"/>
+  <text x="105" y="132" class="cell" text-anchor="middle">0,25</text>
+  <text x="255" y="132" class="cell" text-anchor="middle">0,25</text>
+  <text x="405" y="132" class="cell" text-anchor="middle">0,1125</text>
+
+  <!-- Zeile 3 - leer -->
+  <rect x="30" y="141" width="150" height="28" fill="#F0F4F8" stroke="#DDD" stroke-width="0.5"/>
+  <rect x="180" y="141" width="150" height="28" fill="#F0F4F8" stroke="#DDD" stroke-width="0.5"/>
+  <rect x="330" y="141" width="150" height="28" fill="#F0F4F8" stroke="#DDD" stroke-width="0.5"/>
+  <text x="105" y="160" class="hint" text-anchor="middle">?</text>
+  <text x="255" y="160" class="hint" text-anchor="middle">0,25</text>
+  <text x="405" y="160" class="hint" text-anchor="middle">?</text>
+
+  <!-- Zeile 4 - leer -->
+  <rect x="30" y="169" width="150" height="28" fill="white" stroke="#DDD" stroke-width="0.5"/>
+  <rect x="180" y="169" width="150" height="28" fill="white" stroke="#DDD" stroke-width="0.5"/>
+  <rect x="330" y="169" width="150" height="28" fill="white" stroke="#DDD" stroke-width="0.5"/>
+  <text x="105" y="188" class="hint" text-anchor="middle">?</text>
+  <text x="255" y="188" class="hint" text-anchor="middle">0,25</text>
+  <text x="405" y="188" class="hint" text-anchor="middle">?</text>
+
+  <!-- Zeile 5 - leer -->
+  <rect x="30" y="197" width="150" height="28" fill="#F0F4F8" stroke="#DDD" stroke-width="0.5"/>
+  <rect x="180" y="197" width="150" height="28" fill="#F0F4F8" stroke="#DDD" stroke-width="0.5"/>
+  <rect x="330" y="197" width="150" height="28" fill="#F0F4F8" stroke="#DDD" stroke-width="0.5"/>
+  <text x="105" y="216" class="hint" text-anchor="middle">?</text>
+  <text x="255" y="216" class="hint" text-anchor="middle">0,25</text>
+  <text x="405" y="216" class="hint" text-anchor="middle">?</text>
+
+  <!-- Zeile 6 - leer -->
+  <rect x="30" y="225" width="150" height="28" fill="white" stroke="#DDD" stroke-width="0.5"/>
+  <rect x="180" y="225" width="150" height="28" fill="white" stroke="#DDD" stroke-width="0.5"/>
+  <rect x="330" y="225" width="150" height="28" fill="white" stroke="#DDD" stroke-width="0.5"/>
+  <text x="105" y="244" class="hint" text-anchor="middle">?</text>
+  <text x="255" y="244" class="hint" text-anchor="middle">0,25</text>
+  <text x="405" y="244" class="hint" text-anchor="middle">?</text>
+
+  <!-- Zeile 7 - Endergebnis -->
+  <rect x="30" y="253" width="150" height="28" fill="#E8F0E8" stroke="#DDD" stroke-width="0.5"/>
+  <rect x="180" y="253" width="150" height="28" fill="#E8F0E8" stroke="#DDD" stroke-width="0.5"/>
+  <rect x="330" y="253" width="150" height="28" fill="#E8F0E8" stroke="#DDD" stroke-width="0.5"/>
+  <text x="105" y="272" class="cell" text-anchor="middle" fill="#2B7A2B" font-weight="bold">1,5</text>
+  <text x="255" y="272" class="hint" text-anchor="middle">0,25</text>
+  <text x="405" y="272" class="cell" text-anchor="middle" fill="#2B7A2B" font-weight="bold">?</text>
+
+  <!-- Formel-Hinweis -->
+  <rect x="90" y="290" width="340" height="24" rx="4" fill="#FFF8E1" stroke="#FFB300" stroke-width="1"/>
+  <text x="260" y="307" font-size="13" fill="#333" text-anchor="middle" font-weight="bold">Update-Regel: x_neu = x_alt + v · dt</text>
+</svg>
